@@ -6,6 +6,8 @@ ADD_LIBRARY(hello
   greeter-simple.h
   greeter-simple.cpp
 )
+TARGET_LINK_LIBRARIES(hello blacklist)
+
 SET_PROPERTY(TARGET hello PROPERTY VERSION "${PROJECT_VERSION}")
 INSTALL(TARGETS hello DESTINATION lib)
 

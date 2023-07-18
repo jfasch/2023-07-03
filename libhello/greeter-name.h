@@ -2,6 +2,15 @@
 #define GREETER_NAME_H
 
 #include "greeter.h"
+#include <DemoConfig.h>
+
+#ifndef DEMO_USE_BLACKLIST
+#  error DEMO_USE_BLACKLIST
+#endif
+#if DEMO_USE_BLACKLIST == 1
+#  include <blacklist.h>
+#endif
+
 #include <string>
 
 class NameGreeter : public Greeter
@@ -12,6 +21,9 @@ public:
 
 private:
     std::string _name;
+#if DEMO_USE_BLACKLIST == 1
+    Blacklist _blacklist;
+#endif
 };
 
 #endif
